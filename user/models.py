@@ -6,3 +6,4 @@ class User(AbstractUser):
     cover_image = models.CharField(max_length=50, null=True)
 
 
+
