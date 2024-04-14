@@ -16,7 +16,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.pagination import PageNumberPagination
 
 class StandardResultsSetPagination(PageNumberPagination):
-    page_size = 5
+    page_size = 8
     page_size_query_param = 'page_size'
     max_page_size = 1000
 
@@ -24,7 +24,7 @@ class ProductViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAdminOrReadOnly]
     serializer_class = ProductSerializer
     pagination_class = StandardResultsSetPagination
-    page_size = 5
+    page_size = 8
     queryset = Product.objects.all()
 
     def get_queryset(self):
