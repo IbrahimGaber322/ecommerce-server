@@ -25,6 +25,7 @@ class UserSerializer(serializers.ModelSerializer):
             "profile_image",
             "cover_image",
             "is_verified",
+            "about"
         ]
         extra_kwargs = {"id": {"read_only": True}, "email": {"required": True}}
 

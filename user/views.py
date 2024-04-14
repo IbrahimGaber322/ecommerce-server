@@ -80,6 +80,12 @@ class MeView(APIView):
         serialzier = UserSerializer(request.user)
         return Response(serialzier.data, status=status.HTTP_200_OK)
 
+    @extend_schema(request=UserSerializer, responses={200: UserSerializer})
+    def put(self, request):
+        serializer = UserSerializer(request.user, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 class SendEmailVerification(GenericAPIView):
     """
